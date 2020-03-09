@@ -16,6 +16,7 @@ Conclusion: I guess that more hidden units supposed to give more stable results?
 observation: the rate of change to a higher sum reward is very high
 conclusion: I think this because we take more aggresive steps to the better solution<br/>
 thought: why we can't make this ppvarince a variable that start with a very high value and decrease gradually with each generation to be able to convarege to the best parameters with least number of generation
+
 **changing number of episodes from 100 to 10**<br/>
 thought: I think number as we increase the number of epsiodes we give more chance to the better parameters to show as we give to chance to face different initials of pole position 
 
