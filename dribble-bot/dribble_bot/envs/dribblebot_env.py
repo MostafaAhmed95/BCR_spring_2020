@@ -94,9 +94,7 @@ class DribblebotBulletEnv(gym.Env):
 
     def set_actuator(self, action):
         """Update the desired velocity of the actuators"""
-        #don't forget to check it without the 100
-        #self.vt_l, self.vt_r = 100 * action[0], 100 * action[1]
-        self.vt_l, self.vt_r = action[0], action[1]
+        self.vt_l, self.vt_r = 100 * action[0], 100 * action[1]
         p.setJointMotorControl2(bodyUniqueId=self.botId,
         jointIndex=0,
         controlMode=p.VELOCITY_CONTROL,
@@ -144,14 +142,8 @@ class DribblebotBulletEnv(gym.Env):
         
 
     def compute_done(self):
-        # episode ends when the barycentre of the robot is too low or after 500 steps
+        # episode ends when the ball gets near the goal or after 100 steps
         d = self.compute_observation()
-        #r = np.absolute(self.compute_reward())
-        #return r < 0.1 or self.envStepCounter >= 500
-        #return d[3]<0.1 or self.envStepCounter >= 100
-        #change it later 
         return d[0]<0.1 or self.envStepCounter >= 100
-        #just to see if it reached or not
-        #if r < 0.15:
-            #print("adfjha jfhkjash jhfdkshf done")
+
         
